@@ -1,0 +1,117 @@
+.calendar-container {
+    max-width: 100rem;
+    width: 90%;
+    margin: 0 auto;
+    background: var(--card-background);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--card-background-gradient);
+  }
+  
+  .calendar-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--neutral-dark);
+    font-size: 2.8rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+  
+  .calendar-header:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(225, 229, 235, 0.5), rgba(225, 229, 235, 1), rgba(225, 229, 235, 0.5));
+  }
+  
+  .calendar-view-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .calendar-view-buttons button {
+    background-color: #f5f7fa;
+    color: var(--neutral-dark);
+    border: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .calendar-view-buttons button:hover {
+    background-color: #eaeff5;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .calendar-view-buttons button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+  
+  .calendar-wrapper {
+    margin-bottom: 2rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+  
+  .calendar-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+    color: var(--neutral-medium);
+  }
+  
+  .legend-color {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: var(--radius-sm);
+  }
+  
+  .calendar-instructions {
+    text-align: center;
+    color: var(--neutral-medium);
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fb;
+    border-radius: var(--radius-md);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .calendar-container {
+      padding: 1.5rem;
+      border-radius: 0.8rem;
+      width: 95%;
+    }
+    
+    .calendar-view-buttons {
+      flex-wrap: wrap;
+    }
+    
+    .calendar-view-buttons button {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      font-size: 1.4rem;
+    }
+  }

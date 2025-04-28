@@ -1,0 +1,43 @@
+.login-container {
+    max-width: 40rem;
+    margin: 8rem auto;
+    padding: 3rem;
+    background: var(--card-background);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--card-background-gradient);
+  }
+  
+  .login-container h2 {
+    margin-bottom: 3rem;
+    color: var(--neutral-dark);
+  }
+  
+  .login-container input {
+    width: 100%;
+    margin: 1rem 0 2rem;
+  }
+  
+  .login-container button {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  
+  .login-button {
+    background-color: var(--primary-color);
+    padding: 1.2rem;
+    transition: var(--transition-fast);
+  }
+  
+  .login-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .login-button:active {
+    transform: translateY(1px);
+  }

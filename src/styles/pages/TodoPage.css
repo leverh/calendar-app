@@ -1,0 +1,175 @@
+.todo-container {
+    max-width: 100rem;
+    width: 90%;
+    margin: 0 auto;
+    background: var(--card-background);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--card-background-gradient);
+  }
+  
+  .todo-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--neutral-dark);
+    font-size: 2.8rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+  
+  .todo-header:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(225, 229, 235, 0.5), rgba(225, 229, 235, 1), rgba(225, 229, 235, 0.5));
+  }
+  
+  .todo-add-form {
+    background: #f8f9fb;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 3rem;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .todo-add-form .form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .todo-add-form .form-group {
+    flex: 1;
+    min-width: 20rem;
+  }
+  
+  .todo-add-form label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: var(--neutral-dark);
+  }
+  
+  .todo-add-form button {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .todo-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .todo-section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .todo-section h3 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .todo-section.immediate h3 { color: var(--danger-color); }
+  .todo-section.tomorrow h3 { color: var(--warning-color); }
+  .todo-section.week h3 { color: #f1c40f; }
+  .todo-section.month h3 { color: var(--primary-color); }
+  .todo-section.quarter h3 { color: #9b59b6; }
+  .todo-section.lifetime h3 { color: var(--neutral-medium); }
+  
+  .todo-section.immediate { border-left: 5px solid var(--danger-color); }
+  .todo-section.tomorrow { border-left: 5px solid var(--warning-color); }
+  .todo-section.week { border-left: 5px solid #f1c40f; }
+  .todo-section.month { border-left: 5px solid var(--primary-color); }
+  .todo-section.quarter { border-left: 5px solid #9b59b6; }
+  .todo-section.lifetime { border-left: 5px solid var(--neutral-medium); }
+  
+  .todo-section-completed {
+    background: var(--success-light);
+    border: 1px solid #d1e7dd;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    border-left: 5px solid var(--success-color);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .todo-section-completed h3 {
+    color: var(--success-color);
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #d1e7dd;
+  }
+  
+  .todo-section-completed .todo-item {
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .todo-section-completed .todo-title {
+    text-decoration: line-through;
+    color: var(--neutral-medium);
+  }
+  
+  /* Toggle completed section */
+  .toggle-completed {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #f8f9fb;
+    border-radius: var(--radius-md);
+    margin-top: 2rem;
+  }
+  
+  .empty-state h3 {
+    color: var(--neutral-medium);
+    margin-bottom: 1rem;
+  }
+  
+  .empty-state p {
+    color: var(--neutral-light);
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .todo-container {
+      padding: 1.5rem;
+      border-radius: 0.8rem;
+      width: 95%;
+    }
+    
+    .todo-add-form .form-group {
+      flex: 100%;
+    }
+    
+    .todo-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .todo-actions button {
+      width: 100%;
+      margin: 0.3rem 0;
+    }
+  }

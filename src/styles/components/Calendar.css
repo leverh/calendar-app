@@ -1,0 +1,101 @@
+/* FullCalendar Overrides */
+.fc {
+    font-size: 1.4rem;
+  }
+  
+  .fc-toolbar-title {
+    font-size: 2.2rem !important;
+    font-weight: 600 !important;
+    color: var(--neutral-dark) !important;
+  }
+  
+  .fc .fc-button {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .fc .fc-button-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-dark) !important;
+  }
+  
+  .fc .fc-button-primary:hover {
+    background-color: var(--primary-dark) !important;
+  }
+  
+  .fc-day-today {
+    background: linear-gradient(to bottom right, rgba(74, 144, 226, 0.05), rgba(74, 144, 226, 0.1)) !important;
+  }
+  
+  .fc-event {
+    border-radius: var(--radius-sm);
+    padding: 0.4rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-fast);
+  }
+  
+  .fc-event:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  .fc-event-title {
+    font-weight: 500;
+  }
+  
+  .fc-daygrid-day-number {
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0.6rem !important;
+    opacity: 0.8;
+  }
+  
+  .fc-col-header-cell-cushion {
+    font-weight: 600;
+    padding: 1rem;
+  }
+  
+  /* Calendar styling */
+  .fc th {
+    background-color: #f8f9fb;
+    padding: 1rem 0;
+  }
+  
+  .fc-scrollgrid {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .fc-theme-standard td, .fc-theme-standard th {
+    border-color: var(--border-light);
+  }
+  
+  .fc-daygrid-event {
+    padding: 0.5rem 0.8rem;
+    margin-top: 0.2rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Event tooltip */
+  .event-tooltip {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+    font-size: 1.4rem;
+    color: var(--neutral-dark);
+    max-width: 25rem;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  
+  /* Todo events in the calendar */
+  .todo-calendar-event {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+  }

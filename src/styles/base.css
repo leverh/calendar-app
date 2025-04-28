@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Color variables */
+  --primary-color: #4a90e2;
+  --primary-dark: #3a7bc8;
+  --primary-light: rgba(74, 144, 226, 0.1);
+  
+  --success-color: #2ecc71;
+  --success-dark: #27ae60;
+  --success-light: #f1f9f5;
+  
+  --danger-color: #e74c3c;
+  --danger-dark: #c0392b;
+  --danger-light: #ffeaea;
+  
+  --warning-color: #f39c12;
+  --warning-dark: #e67e22;
+  
+  --neutral-dark: #2c3e50;
+  --neutral-medium: #7f8c8d;
+  --neutral-light: #95a5a6;
+  
+  --background-color: #f0f4f8;
+  --card-background: #ffffff;
+  --card-background-gradient: linear-gradient(to bottom, #ffffff, #fafbfd);
+  
+  --border-color: #dce1e8;
+  --border-light: #e1e5eb;
+  --border-focus: rgba(74, 144, 226, 0.15);
+  
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 5px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 15px rgba(0, 0, 0, 0.08);
+  
+  /* Spacing and sizing */
+  --spacing-xs: 0.4rem;
+  --spacing-sm: 0.8rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  --radius-sm: 0.4rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1.2rem;
+  --radius-circle: 50%;
+  
+  /* Animation */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+  color: #333;
+  line-height: 1.6;
+  font-size: 1.6rem;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg);
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--neutral-dark);
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2.2rem;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+/* Form elements */
+input, select, textarea {
+  width: 100%;
+  padding: 1.2rem;
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1.6rem;
+  color: #333;
+  background: white;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--border-focus);
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 4rem;
+}
+
+textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+label {
+  font-weight: 500;
+  color: var(--neutral-dark);
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Utilities */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.error-message {
+  background-color: var(--danger-light);
+  color: var(--danger-color);
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+/* Custom scrollbar for better visibility */
+::-webkit-scrollbar {
+  width: 1.2rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 1rem;
+  border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-light);
+}
+
+/* Responsive base styles */
+@media (max-width: 768px) {
+  html {
+    font-size: 9px;
+  }
+  
+  .app {
+    padding: 1rem;
+  }
+}

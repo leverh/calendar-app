@@ -1,0 +1,170 @@
+/* Accessibility Controls Container */
+.accessibility-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+  
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  /* Login page accessibility controls */
+  .login-container .accessibility-controls {
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  
+  /* Accessibility Buttons */
+  .accessibility-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    color: var(--neutral-dark);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.8rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    min-width: 4rem;
+    height: 4rem;
+  }
+  
+  .accessibility-btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .accessibility-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+  
+  .accessibility-icon {
+    font-size: 1.8rem;
+  }
+  
+  /* Large Text Mode */
+  .large-text {
+    font-size: 1.1em;
+  }
+  
+  .large-text input,
+  .large-text button,
+  .large-text select,
+  .large-text textarea {
+    font-size: 1.1em;
+  }
+  
+  .large-text .fc {
+    font-size: 1.1em;
+  }
+  
+  .large-text .accessibility-icon {
+    font-size: 2rem;
+  }
+  
+  /* Dark Mode Styles */
+  .dark-mode {
+    --background-color: #1a1a2e;
+    --card-background: #16213e;
+    --card-background-gradient: linear-gradient(to bottom, #16213e, #1a1a2e);
+    
+    --primary-color: #4361ee;
+    --primary-dark: #3a56e8;
+    --primary-light: rgba(67, 97, 238, 0.15);
+    
+    --neutral-dark: #e1e5f2;
+    --neutral-medium: #a2a8c7;
+    --neutral-light: #70798c;
+    
+    --border-color: #2a2a4a;
+    --border-light: #2a2a4a;
+    
+    color: #e1e5f2;
+  }
+  
+  .dark-mode .modal,
+  .dark-mode .todo-container,
+  .dark-mode .calendar-container,
+  .dark-mode .login-container,
+  .dark-mode nav {
+    background: var(--card-background);
+    background: var(--card-background-gradient);
+  }
+  
+  .dark-mode input, 
+  .dark-mode select, 
+  .dark-mode textarea {
+    background-color: #1e2746;
+    border-color: #2a2a4a;
+    color: #e1e5f2;
+  }
+  
+  .dark-mode .todo-add-form,
+  .dark-mode .calendar-instructions,
+  .dark-mode .empty-state,
+  .dark-mode .todo-due-date {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .dark-mode .todo-section {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark-mode .fc th {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .dark-mode .fc-day-today {
+    background: rgba(67, 97, 238, 0.2) !important;
+  }
+  
+  .dark-mode .fc-theme-standard td, 
+  .dark-mode .fc-theme-standard th {
+    border-color: #2a2a4a;
+  }
+  
+  .dark-mode input::placeholder,
+  .dark-mode textarea::placeholder {
+    color: #a2a8c7;
+  }
+  
+  .dark-mode a {
+    color: #4361ee;
+  }
+  
+  .dark-mode .todo-checkbox {
+    border-color: #70798c;
+    background-color: #1e2746;
+  }
+  
+  /* Print-specific styles */
+  @media print {
+    .accessibility-controls,
+    .nav-controls {
+      display: none !important;
+    }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .nav-controls {
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+    }
+    
+    .accessibility-controls {
+      width: 100%;
+      justify-content: center;
+    }
+  }

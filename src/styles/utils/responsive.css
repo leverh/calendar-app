@@ -1,0 +1,169 @@
+/* Media query breakpoints */
+/* 
+  Breakpoints:
+  - Small: 576px and up
+  - Medium: 768px and up
+  - Large: 992px and up
+  - Extra Large: 1200px and up
+*/
+
+/* Extra small devices (phones) */
+@media (max-width: 575.98px) {
+    html {
+      font-size: 8px;
+    }
+    
+    .app {
+      padding: 0.5rem;
+    }
+    
+    .calendar-container,
+    .todo-container {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.6rem;
+    }
+    
+    .todo-item {
+      padding: 1rem;
+    }
+    
+    .color-swatch {
+      width: 3rem;
+      height: 3rem;
+    }
+    
+    .nav-links {
+      gap: 0.5rem;
+    }
+    
+    nav a {
+      font-size: 1.6rem;
+      padding: 0.6rem 1rem;
+    }
+  }
+  
+  /* Small devices (landscape phones) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    html {
+      font-size: 9px;
+    }
+    
+    .calendar-container,
+    .todo-container {
+      width: 95%;
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Medium devices (tablets) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    html {
+      font-size: 10px;
+    }
+    
+    .calendar-container,
+    .todo-container {
+      width: 90%;
+    }
+  }
+  
+  /* Large devices (desktops) */
+  @media (min-width: 992px) {
+    html {
+      font-size: 10px;
+    }
+    
+    .app {
+      padding: 2rem;
+    }
+    
+    .calendar-container,
+    .todo-container {
+      padding: 3rem;
+    }
+  }
+  
+  /* Print styles - useful for printing calendar */
+  @media print {
+    body {
+      background: white;
+      font-size: 12pt;
+    }
+    
+    .app {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav, 
+    .calendar-view-buttons,
+    .calendar-instructions,
+    button:not(.fc-button),
+    .todo-add-form {
+      display: none !important;
+    }
+    
+    .calendar-container, 
+    .todo-container {
+      box-shadow: none;
+      border: none;
+      width: 100%;
+      padding: 0;
+    }
+    
+    .fc {
+      font-size: 12pt;
+    }
+    
+    .fc-event {
+      border: 1px solid #000 !important;
+      color: #000 !important;
+    }
+    
+    .todo-section {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 1px solid #ccc;
+      box-shadow: none;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (forced-colors: active) {
+    .color-swatch {
+      border: 2px solid currentColor;
+    }
+    
+    button, 
+    .calendar-view-buttons button,
+    .toggle-btn {
+      border: 1px solid currentColor;
+    }
+    
+    .fc-event {
+      border: 1px solid currentColor !important;
+    }
+    
+    .todo-item,
+    .event-tooltip {
+      border: 1px solid currentColor;
+    }
+  }
+  
+  /* Large text mode for better readability */
+  .large-text {
+    font-size: 1.1em;
+  }
+  
+  .large-text input,
+  .large-text button,
+  .large-text select,
+  .large-text textarea {
+    font-size: 1.1em;
+  }
+  
+  .large-text .fc {
+    font-size: 1.1em;
+  }

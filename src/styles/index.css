@@ -1,0 +1,20 @@
+/* Base styles */
+@import './base.css';
+
+/* Component styles */
+@import './components/Button.css';
+@import './components/Navigation.css';
+@import './components/Modal.css';
+@import './components/TodoItem.css';
+@import './components/Calendar.css';
+@import './components/Weather.css';
+
+/* Page styles */
+@import './pages/Login.css';
+@import './pages/CalendarPage.css';
+@import './pages/TodoPage.css';
+
+/* Utility styles */
+@import './utils/animations.css';
+@import './utils/responsive.css';
+@import './utils/accessibility.css';
