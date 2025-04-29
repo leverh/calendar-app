@@ -125,6 +125,55 @@
     text-decoration: line-through;
     color: var(--neutral-medium);
   }
+
+  .todo-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .tab-button {
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.8rem 0.8rem 0 0;
+    border: 1px solid var(--border-light);
+    border-bottom: none;
+    background: white;
+    color: var(--neutral-dark);
+    font-size: 1.4rem;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+  }
+  
+  .tab-button.active {
+    background-color: var(--primary-light);
+    border-bottom: 3px solid var(--primary-color);
+    font-weight: 500;
+  }
+  
+  .tab-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.6rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+  }
+  
+  /* Tab color indicators */
+  .tab-button.immediate { border-top: 3px solid var(--danger-color); }
+  .tab-button.tomorrow { border-top: 3px solid var(--warning-color); }
+  .tab-button.week { border-top: 3px solid #f1c40f; }
+  .tab-button.month { border-top: 3px solid var(--primary-color); }
+  .tab-button.quarter { border-top: 3px solid #9b59b6; }
+  .tab-button.lifetime { border-top: 3px solid var(--neutral-medium); }
   
   /* Toggle completed section */
   .toggle-completed {
@@ -171,5 +220,18 @@
     .todo-actions button {
       width: 100%;
       margin: 0.3rem 0;
+    }
+
+    .todo-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .tab-button {
+      flex: 0 0 auto;
+      padding: 0.8rem 1rem;
+      font-size: 1.2rem;
     }
   }

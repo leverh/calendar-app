@@ -7,6 +7,7 @@ export default function EventModal({ date, onSave, onClose, eventToEdit, onDelet
   const [reminder, setReminder] = useState("30");
   const [color, setColor] = useState("blue");
   const [description, setDescription] = useState("");
+  const [addToTaskList, setAddToTaskList] = useState(eventToEdit?.addToTaskList || false);
 
   useEffect(() => {
     if (eventToEdit) {
@@ -20,6 +21,7 @@ export default function EventModal({ date, onSave, onClose, eventToEdit, onDelet
       setReminder(eventToEdit.reminder || "30");
       setColor(eventToEdit.color || "blue");
       setDescription(eventToEdit.description || "");
+      setAddToTaskList(eventToEdit.addToTaskList || false);
     }
   }, [eventToEdit]);
 
@@ -32,6 +34,7 @@ export default function EventModal({ date, onSave, onClose, eventToEdit, onDelet
       reminder,
       color,
       description,
+      addToTaskList,
     });
   };
 
@@ -125,6 +128,18 @@ export default function EventModal({ date, onSave, onClose, eventToEdit, onDelet
               placeholder="Add details for this event"
             />
           </div>
+
+          <div className="form-group">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={addToTaskList}
+              onChange={(e) => setAddToTaskList(e.target.checked)}
+              className="todo-checkbox"
+            />
+            Add to Task List
+          </label>
+        </div>
 
           <div className="modal-actions">
             {eventToEdit && (

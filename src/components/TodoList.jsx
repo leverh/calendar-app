@@ -19,6 +19,7 @@ export default function TodoList({ user }) {
   const [newTodoAddToCalendar, setNewTodoAddToCalendar] = useState(false);
   const [showCompleted, setShowCompleted] = useState(false);
   const [editingTodo, setEditingTodo] = useState(null);
+  const [activeTab, setActiveTab] = useState("Immediate Attention (Today)");
 
   useEffect(() => {
     if (user) {
@@ -213,206 +214,221 @@ export default function TodoList({ user }) {
     return date.toLocaleDateString(undefined, options);
   };
 
-  return (
-    <div className="todo-container">
-      <h2 className="todo-header">Task Manager</h2>
+return (
+  <div className="todo-container">
+    <h2 className="todo-header">Task Manager</h2>
 
-      {/* Add Todo Form */}
-      <form className="todo-add-form" onSubmit={addTodo}>
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="task-title">Task</label>
-            <input
-              id="task-title"
-              placeholder="What needs to be done?"
-              value={newTodoTitle}
-              onChange={(e) => setNewTodoTitle(e.target.value)}
-              required
-            />
-          </div>
-        </div>
-
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="task-date">Due Date</label>
-            <input
-              id="task-date"
-              type="date"
-              value={newTodoDueDate}
-              onChange={(e) => setNewTodoDueDate(e.target.value)}
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="task-time">Time</label>
-            <input
-              id="task-time"
-              type="time"
-              value={newTodoTime}
-              onChange={(e) => setNewTodoTime(e.target.value)}
-            />
-          </div>
-        </div>
-
+    {/* Add Todo Form */}
+    <form className="todo-add-form" onSubmit={addTodo}>
+      <div className="form-row">
         <div className="form-group">
-          <label htmlFor="task-description">Notes</label>
-          <textarea
-            id="task-description"
-            placeholder="Add any details or notes about this task"
-            value={newTodoDescription}
-            onChange={(e) => setNewTodoDescription(e.target.value)}
-            rows={2}
+          <label htmlFor="task-title">Task</label>
+          <input
+            id="task-title"
+            placeholder="What needs to be done?"
+            value={newTodoTitle}
+            onChange={(e) => setNewTodoTitle(e.target.value)}
+            required
+          />
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="task-date">Due Date</label>
+          <input
+            id="task-date"
+            type="date"
+            value={newTodoDueDate}
+            onChange={(e) => setNewTodoDueDate(e.target.value)}
           />
         </div>
         
         <div className="form-group">
-          <label className="checkbox-label">
-            <input
-              type="checkbox"
-              checked={newTodoAddToCalendar}
-              onChange={(e) => setNewTodoAddToCalendar(e.target.checked)}
-              className="todo-checkbox"
-            />
-            Add also to Calendar
-          </label>
+          <label htmlFor="task-time">Time</label>
+          <input
+            id="task-time"
+            type="time"
+            value={newTodoTime}
+            onChange={(e) => setNewTodoTime(e.target.value)}
+          />
         </div>
-        
-        <button type="submit">Add Task</button>
-      </form>
-
-      {/* Editing Form */}
-      {editingTodo && (
-        <div className="modal-backdrop">
-          <div className="modal">
-            <h2>Edit Task</h2>
-            <form onSubmit={(e) => { e.preventDefault(); saveEditedTodo(); }}>
-              <div className="form-group">
-                <label htmlFor="edit-title">Task</label>
-                <input
-                  id="edit-title"
-                  value={editingTodo.title}
-                  onChange={(e) => setEditingTodo({...editingTodo, title: e.target.value})}
-                  required
-                />
-              </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="edit-date">Due Date</label>
-                  <input
-                    id="edit-date"
-                    type="date"
-                    value={editingTodo.dueDate}
-                    onChange={(e) => setEditingTodo({...editingTodo, dueDate: e.target.value})}
-                  />
-                </div>
-                
-                <div className="form-group">
-                  <label htmlFor="edit-time">Time</label>
-                  <input
-                    id="edit-time"
-                    type="time"
-                    value={editingTodo.time}
-                    onChange={(e) => setEditingTodo({...editingTodo, time: e.target.value})}
-                  />
-                </div>
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="edit-description">Notes</label>
-                <textarea
-                  id="edit-description"
-                  value={editingTodo.description || ""}
-                  onChange={(e) => setEditingTodo({...editingTodo, description: e.target.value})}
-                  rows={3}
-                />
-              </div>
-              
-              <div className="form-group">
-                <label className="checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={editingTodo.addToCalendar}
-                    onChange={(e) => setEditingTodo({...editingTodo, addToCalendar: e.target.checked})}
-                    className="todo-checkbox"
-                  />
-                  Add to Calendar
-                </label>
-              </div>
-              
-              <div className="modal-actions">
-                <button type="button" className="cancel" onClick={cancelEdit}>Cancel</button>
-                <button type="submit" className="primary">Save Changes</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Toggle Completed Tasks */}
-      <div className="toggle-completed">
-        <button 
-          onClick={() => setShowCompleted(!showCompleted)}
-          className="toggle-btn"
-        >
-          {showCompleted ? "Hide Completed Tasks" : "Show Completed Tasks"}
-        </button>
       </div>
 
-      {/* Completed Tasks */}
-      {showCompleted && (
-        <div className="todo-section-completed">
-          <h3>✅ Completed Tasks</h3>
-          {todos.filter(todo => todo.completed).length === 0 ? (
-            <p className="no-tasks">No completed tasks yet.</p>
-          ) : (
-            <ul className="todo-list">
-              {todos
-                .filter((todo) => todo.completed)
-                .map((todo) => (
-                  <li key={todo.id} className="todo-item">
-                    <div className="todo-item-content">
-                      <div className="todo-title">{todo.title}</div>
-                      {todo.dueDate && (
-                        <div className="todo-due-date">
-                          {formatDate(todo.dueDate)}
-                        </div>
-                      )}
-                      {todo.description && (
-                        <div className="todo-description">{todo.description}</div>
-                      )}
-                    </div>
-                    <div className="todo-actions">
-                      <button 
-                        onClick={() => toggleTodo(todo.id, todo.completed)}
-                        className="edit-btn"
-                      >
-                        Restore
-                      </button>
-                      <button 
-                        onClick={() => deleteTodo(todo.id)}
-                        className="delete-btn"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </li>
-                ))
-              }
-            </ul>
-          )}
-        </div>
-      )}
+      <div className="form-group">
+        <label htmlFor="task-description">Notes</label>
+        <textarea
+          id="task-description"
+          placeholder="Add any details or notes about this task"
+          value={newTodoDescription}
+          onChange={(e) => setNewTodoDescription(e.target.value)}
+          rows={2}
+        />
+      </div>
+      
+      <div className="form-group">
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            checked={newTodoAddToCalendar}
+            onChange={(e) => setNewTodoAddToCalendar(e.target.checked)}
+            className="todo-checkbox"
+          />
+          Add also to Calendar
+        </label>
+      </div>
+      
+      <button type="submit">Add Task</button>
+    </form>
 
-      {/* Active Tasks by Category */}
-      {Object.entries(categorized).map(([section, tasks]) => {
-        if (tasks.length === 0) return null;
-        
-        return (
-          <div key={section} className={`todo-section ${getSectionClass(section)}`}>
-            <h3>{section}</h3>
+    {/* Editing Form */}
+    {editingTodo && (
+      <div className="modal-backdrop">
+        <div className="modal">
+          <h2>Edit Task</h2>
+          <form onSubmit={(e) => { e.preventDefault(); saveEditedTodo(); }}>
+            <div className="form-group">
+              <label htmlFor="edit-title">Task</label>
+              <input
+                id="edit-title"
+                value={editingTodo.title}
+                onChange={(e) => setEditingTodo({...editingTodo, title: e.target.value})}
+                required
+              />
+            </div>
+            
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="edit-date">Due Date</label>
+                <input
+                  id="edit-date"
+                  type="date"
+                  value={editingTodo.dueDate}
+                  onChange={(e) => setEditingTodo({...editingTodo, dueDate: e.target.value})}
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="edit-time">Time</label>
+                <input
+                  id="edit-time"
+                  type="time"
+                  value={editingTodo.time}
+                  onChange={(e) => setEditingTodo({...editingTodo, time: e.target.value})}
+                />
+              </div>
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="edit-description">Notes</label>
+              <textarea
+                id="edit-description"
+                value={editingTodo.description || ""}
+                onChange={(e) => setEditingTodo({...editingTodo, description: e.target.value})}
+                rows={3}
+              />
+            </div>
+            
+            <div className="form-group">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={editingTodo.addToCalendar}
+                  onChange={(e) => setEditingTodo({...editingTodo, addToCalendar: e.target.checked})}
+                  className="todo-checkbox"
+                />
+                Add to Calendar
+              </label>
+            </div>
+            
+            <div className="modal-actions">
+              <button type="button" className="cancel" onClick={cancelEdit}>Cancel</button>
+              <button type="submit" className="primary">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    )}
+
+    {/* Toggle Completed Tasks */}
+    <div className="toggle-completed">
+      <button 
+        onClick={() => setShowCompleted(!showCompleted)}
+        className="toggle-btn"
+      >
+        {showCompleted ? "Hide Completed Tasks" : "Show Completed Tasks"}
+      </button>
+    </div>
+
+    {/* Completed Tasks */}
+    {showCompleted && (
+      <div className="todo-section-completed">
+        <h3>✅ Completed Tasks</h3>
+        {todos.filter(todo => todo.completed).length === 0 ? (
+          <p className="no-tasks">No completed tasks yet.</p>
+        ) : (
+          <ul className="todo-list">
+            {todos
+              .filter((todo) => todo.completed)
+              .map((todo) => (
+                <li key={todo.id} className="todo-item">
+                  <div className="todo-item-content">
+                    <div className="todo-title">{todo.title}</div>
+                    {todo.dueDate && (
+                      <div className="todo-due-date">
+                        {formatDate(todo.dueDate)}
+                      </div>
+                    )}
+                    {todo.description && (
+                      <div className="todo-description">{todo.description}</div>
+                    )}
+                  </div>
+                  <div className="todo-actions">
+                    <button 
+                      onClick={() => toggleTodo(todo.id, todo.completed)}
+                      className="edit-btn"
+                    >
+                      Restore
+                    </button>
+                    <button 
+                      onClick={() => deleteTodo(todo.id)}
+                      className="delete-btn"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        )}
+      </div>
+    )}
+
+    {/* Active Tasks - Tabbed Interface */}
+    {todos.filter(todo => !todo.completed).length > 0 && (
+      <>
+        {/* Tabs navigation */}
+        <div className="todo-tabs">
+          {Object.entries(categorized).map(([section, tasks]) => (
+            <button 
+              key={section}
+              className={`tab-button ${activeTab === section ? 'active' : ''} ${getSectionClass(section)}`}
+              onClick={() => setActiveTab(section)}
+              disabled={tasks.length === 0}
+            >
+              {section.split(' ')[0]}
+              {tasks.length > 0 && <span className="tab-count">{tasks.length}</span>}
+            </button>
+          ))}
+        </div>
+
+        {/* Only show active tab content */}
+        {categorized[activeTab]?.length > 0 ? (
+          <div className={`todo-section ${getSectionClass(activeTab)}`}>
+            <h3>{activeTab}</h3>
             <ul className="todo-list">
-              {tasks.map((todo) => (
+              {categorized[activeTab].map((todo) => (
                 <li key={todo.id} className="todo-item">
                   <input
                     type="checkbox"
@@ -449,16 +465,20 @@ export default function TodoList({ user }) {
               ))}
             </ul>
           </div>
-        );
-      })}
-      
-      {/* Show message if no tasks */}
-      {todos.filter(todo => !todo.completed).length === 0 && (
-        <div className="empty-state">
-          <h3>No active tasks</h3>
-          <p>Add some tasks to get started! Your to-do list helps you keep track of what needs to be done.</p>
-        </div>
-      )}
-    </div>
-  );
-}
+        ) : (
+          <div className="empty-tab-state">
+            <p>No tasks in this category.</p>
+          </div>
+        )}
+      </>
+    )}
+    
+    {/* Show message if no tasks */}
+    {todos.filter(todo => !todo.completed).length === 0 && (
+      <div className="empty-state">
+        <h3>No active tasks</h3>
+        <p>Add some tasks to get started! Your to-do list helps you keep track of what needs to be done.</p>
+      </div>
+    )}
+  </div>
+);}

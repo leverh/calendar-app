@@ -72,7 +72,7 @@ export default function CalendarView({ user }) {
           }));
 
           const todoEvents = todos
-            .filter((todo) => todo.addToCalendar && todo.dueDate)
+            .filter((todo) => todo.addToCalendar && todo.dueDate && !todo.fromCalendar)
             .map((todo) => ({
               id: `todo-${todo.id}`,
               title: todo.title,
@@ -122,7 +122,7 @@ export default function CalendarView({ user }) {
     const [hour, minute] = data.time.split(":");
     const startDate = new Date(selectedDate);
     startDate.setHours(hour, minute);
-
+    
     let eventData = {
       title: data.title,
       color: data.color,
@@ -131,9 +131,10 @@ export default function CalendarView({ user }) {
       textColor: "#ffffff",
       reminder: data.reminder,
       description: data.description,
+      addToTaskList: data.addToTaskList,
       editable: true,
     };
-
+    
     if (data.repeat !== "none") {
       eventData.rrule = {
         freq: data.repeat.toUpperCase(),
@@ -142,14 +143,33 @@ export default function CalendarView({ user }) {
     } else {
       eventData.start = startDate.toISOString();
     }
-
+    
     try {
+      let eventId;
+      
       if (eventToEdit && eventToEdit.id) {
         const ref = doc(db, "users", user.uid, "events", eventToEdit.id);
         await updateDoc(ref, eventData);
+        eventId = eventToEdit.id;
       } else {
-        await addDoc(collection(db, "users", user.uid, "events"), eventData);
+        const newEventRef = await addDoc(collection(db, "users", user.uid, "events"), eventData);
+        eventId = newEventRef.id;
       }
+      
+      // Add to task list if the checkbox is checked
+      if (data.addToTaskList) {
+        await addDoc(collection(db, "users", user.uid, "todos"), {
+          title: data.title,
+          description: data.description || "",
+          dueDate: startDate.toISOString(),
+          addToCalendar: true, 
+          completed: false,
+          createdAt: new Date().toISOString(),
+          fromCalendar: true,
+          calendarEventId: eventId,
+        });
+      }
+      
       setShowModal(false);
     } catch (error) {
       console.error("Error saving event:", error);

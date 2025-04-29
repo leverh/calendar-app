@@ -13,6 +13,7 @@ A clean calendar and task management application designed with accessibility in 
 - View todos with due dates on the calendar
 - Current weather display
 - Print calendar view
+- Add calendar events directly to task list
 
 ### Task Manager Features
 - Create tasks with title, description, due date, and time
@@ -21,6 +22,9 @@ A clean calendar and task management application designed with accessibility in 
 - Mark tasks as complete
 - Edit and delete tasks
 - Filter to view/hide completed tasks
+- Tabbed interface to easily navigate between time categories
+- Task count indicators to see at a glance where attention is needed
+- Color-coded tabs that match urgency levels
 
 ### Accessibility Features
 - Large text mode for better readability
@@ -29,6 +33,8 @@ A clean calendar and task management application designed with accessibility in 
 - Mobile responsive design
 - Clean, uncluttered interface
 - High contrast visual elements
+- Improved task organization reduces cognitive load
+- Reduced scrolling with tabbed interface
 
 ## Getting Started
 
@@ -80,14 +86,16 @@ yarn dev
 1. Click on any date in the calendar
 2. Fill out the event details (title, time, color, etc.)
 3. Choose if the event repeats (daily, weekly, monthly)
-4. Save the event
+4. Optionally add the event to your task list for tracking
+5. Save the event
 
 ### Managing Tasks
 1. Navigate to the Task Manager tab
 2. Add new tasks using the form at the top
 3. Set due dates and optional calendar display
-4. Mark tasks complete when finished
-5. Use the "Show Completed Tasks" toggle to view completed items
+4. Switch between time-based tabs to focus on specific priorities
+5. Mark tasks complete when finished
+6. Use the "Show Completed Tasks" toggle to view completed items
 
 ### Accessibility Options
 - Click the "Aa" button to toggle large text mode
@@ -128,6 +136,15 @@ Update the `location` prop in the WeatherWidget component in CalendarView.jsx:
 
 ### Changing Color Schemes
 Edit the CSS variables in the `base.css` file to customize the color scheme.
+
+### Task Categories
+The app automatically organizes tasks into the following time-based categories:
+1. Immediate Attention (Today) - Tasks due today
+2. Attention Soon (Tomorrow) - Tasks due tomorrow
+3. Attention This Week - Tasks due within 7 days
+4. Attention This Month - Tasks due this month
+5. Next Quarter - Tasks due within the next 3 months
+6. This Lifetime - Tasks without a due date or due beyond 3 months
 
 ## License
 This project is licensed under the MIT License.

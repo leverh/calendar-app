@@ -146,6 +146,78 @@
     border-color: #70798c;
     background-color: #1e2746;
   }
+
+  .dark-mode .tab-button {
+    background-color: var(--card-background);
+    border-color: var(--border-color);
+  }
+  
+  .dark-mode .tab-button:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark-mode .tab-button.active {
+    background-color: rgba(67, 97, 238, 0.15);
+  }
+  
+  .dark-mode .empty-tab-state {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Dark mode styles for accessibility buttons */
+.dark-mode .accessibility-btn {
+  background-color: #1e2746;
+  color: #e1e5f2;
+  border-color: #2a2a4a;
+}
+
+.dark-mode .accessibility-btn:hover {
+  background-color: rgba(67, 97, 238, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .accessibility-btn.active {
+  background-color: #4361ee;
+  color: white;
+  border-color: #4361ee;
+}
+
+/* Dark mode styles for logout button */
+.dark-mode .logout-btn {
+  background-color: transparent;
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.dark-mode .logout-btn:hover {
+  background-color: rgba(231, 76, 60, 0.15);
+}
+
+/* Calendar view buttons in dark mode */
+.dark-mode .calendar-view-buttons button {
+  background-color: #1e2746;
+  color: #e1e5f2;
+  border-color: #2a2a4a;
+}
+
+.dark-mode .calendar-view-buttons button:hover {
+  background-color: rgba(67, 97, 238, 0.25);
+}
+
+.dark-mode .calendar-view-buttons button.active {
+  background-color: #4361ee;
+  color: white;
+  border-color: #4361ee;
+}
+
+/* Weather widget in dark mode */
+.dark-mode .weather-widget {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .weather-due-date {
+  background-color: #1e2746;
+}
   
   /* Print-specific styles */
   @media print {
@@ -166,5 +238,23 @@
     .accessibility-controls {
       width: 100%;
       justify-content: center;
+    }
+
+    .todo-tabs {
+      margin: 1rem -1rem 2rem;
+      padding: 0 1rem 0.5rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .tab-button {
+      flex: 0 0 auto;
+      padding: 0.8rem 1.2rem;
+      font-size: 1.3rem;
+    }
+    
+    .tab-count {
+      min-width: 1.8rem;
+      height: 1.8rem;
+      font-size: 1.1rem;
     }
   }
