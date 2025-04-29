@@ -1,0 +1,114 @@
+.app-footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    background: var(--card-background);
+    border-top: 1px solid var(--border-light);
+    font-size: 1.4rem;
+    color: var(--neutral-medium);
+    width: 100%;
+  }
+  
+  .footer-content {
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .copyright, .created-by {
+    margin: 0;
+  }
+  
+  .portfolio-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+  
+  .portfolio-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+  
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer-link {
+    color: var(--neutral-medium);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-link:hover {
+    color: var(--neutral-dark);
+    text-decoration: underline;
+  }
+  
+  .footer-divider {
+    color: var(--border-light);
+  }
+  
+  /* Dark mode styles */
+  .dark-mode .app-footer {
+    background: var(--card-background);
+    border-top-color: var(--border-color);
+  }
+  
+  .dark-mode .footer-link {
+    color: var(--neutral-light);
+  }
+  
+  .dark-mode .footer-link:hover {
+    color: white;
+  }
+  
+  .dark-mode .portfolio-link {
+    color: var(--primary-color);
+  }
+  
+  .dark-mode .portfolio-link:hover {
+    color: #5f7fff;
+  }
+  
+  .dark-mode .footer-divider {
+    color: var(--border-color);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .app-footer {
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    
+    .footer-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .footer-info, .footer-links {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .app-footer {
+      display: none;
+    }
+  }

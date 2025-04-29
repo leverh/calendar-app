@@ -4,6 +4,7 @@ import { auth } from "./firebase";
 import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import CalendarView from "./components/CalendarView";
 import TodoList from "./components/TodoList";
+import Footer from './components/Footer';
 import "./styles/index.css";
 
 function App() {
@@ -202,6 +203,7 @@ function App() {
             <Route path="/todos" element={<TodoList user={user} />} />
           </Routes>
         </main>
+        <Footer />
       </Router>
     </div>
   );

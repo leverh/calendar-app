@@ -2,6 +2,13 @@
 
 A clean calendar and task management application designed with accessibility in mind (and without fuss). Perfect for keeping track of appointments, events, and to-do lists. I built this mini web-app for my aunt who needs a simple way to manage her schedule and tasks. Based loosely on the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique).
 
+> Accessible and clean Calendar
+![Accessible Calendar](./src/assets/calendar-accessible.png)
+
+> Task manager with dark mode
+![Task manager dark mode](./src/assets/task-manager-darkmode.png)
+
+
 ## Features
 
 ### Calendar Features
